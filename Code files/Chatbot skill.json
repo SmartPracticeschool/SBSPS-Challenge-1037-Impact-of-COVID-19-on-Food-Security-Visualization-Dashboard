@@ -1,0 +1,501 @@
+{
+  "intents": [
+    {
+      "intent": "Bye",
+      "examples": [
+        {
+          "text": "thanks for responding"
+        },
+        {
+          "text": "bye"
+        },
+        {
+          "text": "thank you"
+        },
+        {
+          "text": "thanks for the valuable information"
+        },
+        {
+          "text": "thank you very much"
+        }
+      ],
+      "description": "When the user wishes to end the conversation"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Greetings",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Hi",
+          "synonyms": [
+            "hello",
+            "hey",
+            "hiya",
+            "howdy",
+            "greetings",
+            "hola",
+            "hallo",
+            "hullo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Good Morning",
+          "synonyms": [
+            "Morning",
+            "Gud Mrng",
+            "gm"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Good Afternoon",
+          "synonyms": [
+            "Gud aftrnoon",
+            "ga"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Good Evening",
+          "synonyms": [
+            "gud evng",
+            "ge"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "FoodSecurityQuestions",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Food Demand",
+          "synonyms": [
+            "Will the pandemic affect the food demand?",
+            "How will the coronavirus affect food demands?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Food Prices",
+          "synonyms": [
+            "Will the pandemic affect food prices?",
+            "How will the coronavirus affect food prices?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Food Security",
+          "synonyms": [
+            "How will the coronavirus affect the overall food security?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Food Supply",
+          "synonyms": [
+            "Will the pandemic affect food supply?",
+            "How will the coronavirus affect food supply?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "General Food Safety",
+          "synonyms": [
+            "What are some tips to ensure food safety during the pandemic?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Minimizing the impact",
+          "synonyms": [
+            "How to reduce the impact of the pandemic on food security?",
+            "How to reduce the impact of COVID-19 on food security?"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Future Impact",
+          "synonyms": [
+            "Will the pandemic have impact on food security in the future?",
+            "How will the pandemic affect food security in the future?"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good Morning. I am here to answer questions regarding 'The Impact of COVID-19 on Food Security in India'. How may I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1594044615950",
+      "conditions": "@Greetings:(Good Morning)",
+      "dialog_node": "response_2_1594044658636",
+      "previous_sibling": "response_3_1594044640516"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good Evening. I am here to answer questions regarding 'The Impact of COVID-19 on Food Security in India'. How may I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1594044615950",
+      "conditions": "@Greetings:(Good Evening)",
+      "dialog_node": "response_9_1594044728284",
+      "previous_sibling": "response_4_1594044696633"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good Afternoon. I am here to answer questions regarding 'The Impact of COVID-19 on Food Security in India'. How may I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1594044615950",
+      "conditions": "@Greetings:(Good Afternoon)",
+      "dialog_node": "response_4_1594044696633",
+      "previous_sibling": "response_2_1594044658636"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. I am here to answer questions regarding 'The Impact of COVID-19 on Food Security in India'. How may I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_2_1594044615950",
+      "conditions": "@Greetings:Hi",
+      "dialog_node": "response_3_1594044640516"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ0gdrxxGGVnJ6qf0KUnLzCSqkcBzDLojuz6A&usqp=CAU",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "In general, Food Security experts have predicted that there is enough food stocks for the rest of 2020. But the lockdown restrictions have put on a hard time for food to reach the urban markets from the rural farms. So there is a slight disruption in the supply chain. But there is hope that the government might lift the restrictions on import and export policies."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(Food Supply)",
+      "dialog_node": "response_7_1594046355505",
+      "previous_sibling": "response_1_1594046166067"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://cdn-a.william-reed.com/var/wrbm_gb_food_pharma/storage/images/9/7/8/0/900879-1-eng-GB/Interconnected-diets-Two-thirds-of-crops-we-consume-are-result-of-food-globalisation_wrbm_large.jpg",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "At the onset of the COVID-19 outbreak, there had been a significant increase in demand, mainly due to people panic buying food items. Food demand is generally inelastic and its effect on overall consumption will be likely limited, although dietary patterns may alter. There is a possibility of a disproportionately larger decline in animal protein consumption (as a result of fears – not science-based – that animals might be hosts of the virus, and other higher-valued products like fish, fruits and vegetables (which are likely to cause price slumps). There has also been a significant spike in demand for canned and packaged food items because they are less perishable."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(Food Demand)",
+      "dialog_node": "response_6_1594045073749",
+      "previous_sibling": "response_1_1594044790846"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://www.bigpicnic.net/media/images/Food_security_diagram.width-800.jpg",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "We risk a looming food crisis unless measures are taken fast to protect the most vulnerable, keep global food supply chains alive and mitigate the pandemic’s impacts across the food system. Border closures, quarantines, and market, supply chain and trade disruptions are restricting people’s access to sufficient/diverse and nutritious sources of food, especially in countries hit hard by the virus or already affected by high levels of food insecurity. But there is no need for the world to panic. Globally, there is enough food for everyone. Policy makers around the world need to be careful not to repeat the mistakes made during the 2007-08 food crisis, and turn this health crisis into an entirely avoidable food crisis."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(Food Security)",
+      "dialog_node": "response_1_1594046166067",
+      "previous_sibling": "response_5_1594046064751"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRUMkHAOZlDO51adMcsYjOMZmWgBt-ddYi7kQ&usqp=CAU",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "1. Keep international trade open and take measures that protect their food supply chain (from obtaining inputs such as seeds to assuring smallholder farmers have access to markets to sell their produce).\n2. Focus on the needs of the most vulnerable, and scale up social protection programmes including cash transfers.\n3. Keep their domestic food supply value chains alive and functioning. \ntaking all necessary precautions, seeds and planting materials must continue to flow to smallholders; animal feed to livestock breeders; and aquaculture inputs to fish farmers. keep agricultural supply chains alive by any means whilst the safety and wellbeing of everyone working along the food chain is protected.\n4. Maintain agricultural activities."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(Minimizing the impact)",
+      "dialog_node": "response_1_1594045736239",
+      "previous_sibling": "response_10_1594045380776"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRgtS9ncQDb_WISr7-LvhEbFPiNi9i-pmF8EQ&usqp=CAU",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "As of early May, the international prices of some major food staples, such as maize, wheat, and palm oil, had declined. The only staple food that has seen rising prices is rice, and that’s was linked to the export restrictions of a key exporter. In turn, as demand for food will decrease over the next months, prices should go down in the rest of 2020, and this will have a negative impact on farmers and the agricultural sector."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(Food Prices)",
+      "dialog_node": "response_5_1594046064751",
+      "previous_sibling": "response_1_1594045736239"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://i.ytimg.com/vi/rt3dsZry7eQ/maxresdefault.jpg",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "As of now, disruptions are minimal, as food supply has been adequate, and markets have been stable so far. Cereal stocks are at comfortable levels and the outlook for wheat and other major staple crops for 2020 is positive. Although less food production of high value commodities (i.e. fruits and vegetables) is already likely, they are not as yet noticeable because of the lockdown and disruption in the value chain. In addition, for wild-capture fisheries and aquaculture, problems in logistics associated with restriction in transportation, border closures, and the reduced demand in restaurants and hotels can generate significant market changes – affecting prices."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(Future Impact)",
+      "dialog_node": "response_10_1594045380776",
+      "previous_sibling": "response_6_1594045073749"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "source": "https://www.fda.gov/files/styles/main_image_medium/public/Holiday-Food-Safety-Tips_1600x900.png?itok=ir5CmsSw",
+            "response_type": "image"
+          },
+          {
+            "values": [
+              {
+                "text": "1. When grocery shopping, plan your shopping list. Do not buy unnecessary items. buying just 1 to 2 weeks’ worth of groceries at a time can help to prevent unnecessary demand & temporary food shortages during the COVID-19 pandemic.\n2. Rinse fresh produce with running water or use a clean produce brush. Remember, it is not recommended to use soap or diluted bleach as these substances may cause an upset stomach. If the produce is labeled “pre-washed” you do not have to wash it again.\n3. With canned goods, rinse the lid before opening to prevent dirt or other contaminants on the outside of the can from getting on the food."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1594044763539",
+      "conditions": "@FoodSecurityQuestions:(General Food Safety)",
+      "dialog_node": "response_1_1594044790846"
+    },
+    {
+      "type": "standard",
+      "title": "Food Security Questions",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@FoodSecurityQuestions",
+      "dialog_node": "node_4_1594044763539",
+      "previous_sibling": "node_2_1594044615950"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_3_1594048014083",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Bye",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I am always here to help you. Keep coming back for additional information on 'The Impact of COVID-19 on Food Security in India'.  Goodbye!!!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#Bye",
+      "dialog_node": "node_3_1594048014083",
+      "previous_sibling": "node_4_1594044763539"
+    },
+    {
+      "type": "standard",
+      "title": "Greetings",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@Greetings",
+      "dialog_node": "node_2_1594044615950",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. I am here to answer questions regarding 'The Impact of COVID-19 on Food Security in India'. How may I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Impact of COVID-19 on Food Security in India",
+  "language": "en",
+  "description": ""
+}
